@@ -41,22 +41,21 @@
         <p class="text-xl text-gray-400 mb-12 text-center">Inquire about our bespoke AI Ops & Automation Retainers.</p>
         
         <div class="max-w-2xl mx-auto p-10 border border-subtle rounded-2xl bg-white/5">
-            <form action="mailto:Teraigent@yahoo.com" method="POST" enctype="text/plain" class="space-y-6">
-                <div>
-                    <label class="block text-sm font-medium text-gray-400 mb-2">Company Name</label>
-                    <input type="text" name="Company" class="w-full bg-[#0a0514] border border-subtle rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500" required>
+            <div class="space-y-8">
+                <div class="bg-[#0a0514] border border-subtle rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-white mb-4">Required Audit Information:</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm list-disc list-inside">
+                        <li><strong>Company Name</strong> & Industry</li>
+                        <li><strong>Current Headcount</strong> (Engineering / Support)</li>
+                        <li><strong>Primary Bottleneck</strong> (What manual process costs your team the most time?)</li>
+                        <li><strong>Current Tech Stack</strong> (CRMs, databases, outreach tools)</li>
+                    </ul>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-400 mb-2">Engineering / Support Headcount</label>
-                    <input type="text" name="Headcount" class="w-full bg-[#0a0514] border border-subtle rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500" required>
+                <div class="text-center">
+                    <p class="text-sm text-gray-500 mb-6">Click below to open your secure email client. Please include the information above in your request.</p>
+                    <a href="mailto:Teraigent@yahoo.com?subject=Initiate%20Tech%20Stack%20Audit&body=Company%20Name%3A%0A%0ACurrent%20Headcount%3A%0A%0APrimary%20Bottleneck%3A%0A%0ACurrent%20Tech%20Stack%3A" class="block w-full py-4 btn-primary rounded-xl text-lg font-bold tracking-wide transition-all duration-200">Open email client</a>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-400 mb-2">Primary Bottleneck / Manual Process</label>
-                    <textarea name="Bottleneck" rows="4" class="w-full bg-[#0a0514] border border-subtle rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500" required></textarea>
-                </div>
-                <button type="submit" class="w-full py-4 btn-primary rounded-xl text-lg font-bold tracking-wide">Request architecture audit</button>
-                <p class="text-xs text-center text-gray-500 mt-4">Submit to open your secure email client.</p>
-            </form>
+            </div>
         </div>
     </main>
 
