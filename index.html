@@ -25,9 +25,32 @@
             background-color: #3b82f6;
         }
         .blue-glow { text-shadow: 0 0 30px rgba(37, 99, 235, 0.4); }
+    
+        .spin-slow { transform-origin: center; animation: spin 40s linear infinite; }
+        .spin-reverse { transform-origin: center; animation: spin-rev 25s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes spin-rev { 100% { transform: rotate(-360deg); } }
+        .reveal-up { opacity: 0; transform: translateY(40px); }
     </style>
+
+    <!-- GSAP for Dynamic Scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body class="antialiased min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
+
+    <!-- Dynamic Floating Swarm Core -->
+    <div id="swarm-core" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-20 w-[800px] h-[800px] flex items-center justify-center">
+        <svg width="100%" height="100%" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="400" cy="400" r="300" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4 12" class="spin-slow" />
+            <circle cx="400" cy="400" r="200" stroke="#333333" stroke-width="1" />
+            <circle cx="400" cy="400" r="200" stroke="#00e5ff" stroke-width="2" stroke-dasharray="20 40" class="spin-reverse" />
+            <circle cx="400" cy="400" r="100" stroke="#00e5ff" stroke-width="1" stroke-dasharray="2 6" class="spin-slow" />
+            <!-- Architectural connection lines -->
+            <path d="M400 100 L400 700 M100 400 L700 400" stroke="#333333" stroke-width="1" />
+        </svg>
+    </div>
+
     <!-- Navigation -->
     <nav class="w-full px-8 py-4 flex justify-between items-center border-b border-subtle backdrop-blur-md sticky top-0 z-50 bg-[#000000]/80">
     <div class="text-2xl font-bold tracking-tight text-white"><span class="text-[#00e5ff]">Tera</span>igent</div>
@@ -48,16 +71,16 @@
     <div class="absolute inset-0 z-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#00e5ff 1px, transparent 1px); background-size: 40px 40px;"></div>
     
     <main class="relative z-10 flex-grow flex flex-col justify-center px-8 pt-48 pb-32 md:pt-64 md:pb-48 max-w-7xl mx-auto w-full min-h-screen">
-        <h1 class="hero-title mb-12 tracking-tight">
+        <h1 class="hero-title mb-12 tracking-tight reveal-up">
             Stop paying humans for machine work.<br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00e5ff] to-[#0088cc]">Deploy autonomous agents.</span>
         </h1>
         
-        <p class="text-xl md:text-2xl text-gray max-w-3xl mb-16 font-light leading-relaxed">
+        <p class="text-xl md:text-2xl text-gray max-w-3xl mb-16 font-light leading-relaxed reveal-up">
             Chatbots don't scale businesses; autonomous workflows do. We architect and deploy custom agents that plug directly into your databases to handle support, sales, and operations 24/7.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-6 items-center">
+        <div class="flex flex-col sm:flex-row gap-6 items-center reveal-up">
             <a id="engage" href="/contact.html" class="btn-primary px-8 py-4 rounded-none font-semibold text-lg flex items-center justify-center">
                 Initiate tech stack audit
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -72,7 +95,7 @@
     <!-- Tangible Impact Section -->
     <section id="results" class="w-full px-8 py-32 bg-[#05010a] border-t border-subtle">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold mb-16">Scale Your Revenue. <span class="text-[#00e5ff]">Not Your Headcount.</span></h2>
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 reveal-up">Scale Your Revenue. <span class="text-[#00e5ff]">Not Your Headcount.</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="border-l border-[#00e5ff]/30 pl-6">
                     <p class="text-5xl font-black text-white mb-2">90%</p>
@@ -167,5 +190,53 @@
             &copy; 2026 Teraigent. All rights reserved.
         </div>
     </footer>
+
+    <!-- GSAP Initialization -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Floating Swarm Core reacts to scroll
+        gsap.to("#swarm-core", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1.5
+            },
+            rotation: 180,
+            scale: 0.6,
+            yPercent: 30,
+            opacity: 0.05,
+            ease: "none"
+        });
+
+        // 2. Parallax depth on the hero grid
+        gsap.to(".absolute.inset-0.z-0", {
+            scrollTrigger: {
+                trigger: "main",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1
+            },
+            y: 150,
+            opacity: 0
+        });
+
+        // 3. Staggered Text Reveals (Discovery Narrative)
+        const revealElements = document.querySelectorAll('.reveal-up');
+        revealElements.forEach((el) => {
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+    </script>
 </body>
 </html>
