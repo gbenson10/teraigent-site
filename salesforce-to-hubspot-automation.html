@@ -8,8 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #000000; color: #fff; letter-spacing: -0.02em; }
-        .hero-title { font-size: 4.5rem; line-height: 1.05; font-weight: 500; letter-spacing: -0.04em; }
-        @media (max-width: 768px) { .hero-title { font-size: 3rem; } }
         .text-gray { color: #888; }
         .border-subtle { border-color: #333333; }
         .btn-primary { 
@@ -19,18 +17,17 @@
             box-shadow: none;
             border: 1px solid #3b82f6;
         }
-        .btn-primary:hover { 
-            transform: translateY(-2px); 
+        .btn-primary:hover {
+            background-color: #00b8cc;
             box-shadow: none;
-            background-color: #3b82f6;
         }
-        .blue-glow { text-shadow: 0 0 30px rgba(37, 99, 235, 0.4); }
     </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
+<body class="antialiased selection:bg-blue-500/30">
+
     <!-- Navigation -->
     <nav class="w-full px-8 py-4 flex justify-between items-center border-b border-subtle backdrop-blur-md sticky top-0 z-50 bg-[#000000]/80">
-        <div class="text-2xl font-bold tracking-tight text-white"><span class="text-[#00e5ff]">Tera</span>igent</div>
+        <div class="text-2xl font-bold tracking-tight text-white"><a href="/"><span class="text-white ">Teraigent</span></a></div>
         <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-300">
             <a href="/" class="hover:text-white transition">Home</a>
             <a href="/products.html" class="hover:text-white transition">Products</a>
@@ -42,64 +39,68 @@
         <a href="/getting-started.html" class="px-6 py-2 btn-primary rounded-none text-sm font-semibold tracking-wide">Get started</a>
     </nav>
 
-    <!-- Hero Section -->
-    <main class="flex-grow flex flex-col justify-center px-8 pt-32 pb-24 md:pt-48 md:pb-32 max-w-7xl mx-auto w-full">
-        <h1 class="hero-title mb-8">
-            Salesforce to HubSpot <br>
-            <span class="text-white  blue-glow">Autonomous Integration</span>
-        </h1>
+    <!-- Header Section -->
+    <main class="max-w-7xl mx-auto px-8 py-24 min-h-screen">
+        <div class="text-center max-w-4xl mx-auto">
+            <div class="text-[#00e5ff] text-sm font-bold tracking-widest uppercase mb-4">Outbound Pipeline Automation</div>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Salesforce to HubSpot autonomous sync.</h1>
+            <p class="text-xl text-gray-400 mb-12">End the manual data entry bottleneck. Deploy a custom Python sub-agent to scrape, qualify, and sync your CRM data natively, without Zapier limits.</p>
+        </div>
         
-        <p class="text-xl md:text-2xl text-gray max-w-3xl mb-12 font-light leading-relaxed">
-            Stop relying on fragile Zapier zaps or manual data entry. Deploy an autonomous agent to seamlessly sync, enrich, and manage your pipeline between Salesforce and HubSpot in real time.
-        </p>
+        <div class="grid md:grid-cols-2 gap-8 mt-16">
+            <div class="p-8 border border-subtle rounded-none bg-[#111111] hover:border-[#00e5ff] transition">
+                <h3 class="text-2xl font-bold mb-4 tracking-tight">The Friction</h3>
+                <p class="text-gray-400 mb-6">Your SDRs are spending 15 hours a week manually migrating lead lists from Salesforce reports into HubSpot sequences. You are paying enterprise salaries for your team to act as API glue.</p>
+            </div>
+            
+            <div class="p-8 border border-subtle rounded-none bg-[#111111] hover:border-[#00e5ff] transition">
+                <h3 class="text-2xl font-bold mb-4 tracking-tight">The Autonomous Fix</h3>
+                <p class="text-gray-400 mb-6">We deploy a secure, custom-built sub-agent that executes complex, multi-stage qualifications (e.g., Status='New', Score > 50) and syncs records natively via REST APIs. Infinite horizontal scale. Zero human touches.</p>
+            </div>
+        </div>
 
-        <div class="flex flex-col sm:flex-row gap-6 items-center">
-            <a id="engage" href="/contact.html" class="btn-primary px-8 py-4 rounded-none font-semibold text-lg flex items-center justify-center">
-                Automate Your CRM Sync
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
+        <div class="mt-24 text-center max-w-2xl mx-auto border-t border-subtle pt-16">
+            <h2 class="text-3xl font-bold tracking-tight mb-6">Scale revenue, not headcount.</h2>
+            <a href="/contact.html" class="inline-block w-full sm:w-auto py-4 px-10 bg-[#00e5ff] text-[#000000] text-lg font-bold tracking-wide transition-all duration-200 hover:bg-white">Initiate tech stack audit</a>
         </div>
     </main>
 
-    <!-- Content Section -->
-    <section class="w-full px-8 py-24 bg-[#05010a] border-t border-subtle">
-        <div class="max-w-4xl mx-auto text-gray leading-relaxed space-y-8">
-            <h2 class="text-3xl text-white font-semibold mb-6">Why traditional syncing fails</h2>
-            <p>
-                Connecting Salesforce and HubSpot is a notoriously brittle process. Traditional iPaaS solutions like Zapier or Make break when custom fields change, and native integrations often lack the logic needed to handle complex routing, lead scoring, or deduplication.
-            </p>
-            <h2 class="text-3xl text-white font-semibold mb-6">The Agentic Approach</h2>
-            <p>
-                Teraigent deploys an autonomous workflow agent that doesn't just pass data back and forth. It understands the context of the data. When a lead reaches a specific stage in HubSpot, the agent intelligently provisions the account in Salesforce, enriching the record with external data and notifying the assigned AE—all without human intervention.
-            </p>
-            <h3 class="text-2xl text-blue-300 font-medium mt-8 mb-4">Core Capabilities</h3>
-            <ul class="list-disc pl-6 space-y-4">
-                <li>Intelligent deduplication across both platforms using fuzzy matching.</li>
-                <li>Real-time bidirectional sync that survives custom field schema changes.</li>
-                <li>Automated lead enrichment before routing to Salesforce.</li>
-                <li>Error handling and self-healing pipelines that notify you only when human judgment is required.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="w-full px-8 py-24 bg-[#111111] border-t border-subtle text-center">
-        <h2 class="text-4xl font-semibold mb-8">Ready to replace manual CRM tasks?</h2>
-        <a href="/contact.html" class="inline-block btn-primary px-10 py-4 rounded-none font-semibold text-lg">
-            Deploy Your CRM Agent
-        </a>
-    </section>
-
-    <!-- Footer -->
-    <footer class="w-full px-8 py-12 border-t border-subtle bg-[#000000]">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="text-xl font-bold tracking-tight text-gray mb-4 md:mb-0">Tera<span class="text-blue-700">igent</span></div>
-            <div class="flex space-x-8 text-sm text-gray">
-                <a href="/privacy.html" class="hover:text-white transition">Privacy</a>
-                <a href="/terms.html" class="hover:text-white transition">Terms</a>
-                <a href="/contact.html" class="hover:text-white transition">Contact</a>
+    <!-- Minimal Footer -->
+    <footer class="w-full px-8 py-12 border-t border-subtle bg-[#000000] mt-auto">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-sm">
+            <div>
+                <div class="text-xl font-bold tracking-tight text-white mb-4"><span class="text-white ">Teraigent</span></div>
+                <p class="text-gray-500">Scale your revenue.<br>Not your headcount.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Platform</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="/products.html" class="hover:text-[#00e5ff] transition">Products</a></li>
+                    <li><a href="/results.html" class="hover:text-[#00e5ff] transition">Results</a></li>
+                    <li><a href="/getting-started.html" class="hover:text-[#00e5ff] transition">Get started</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Company</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="/about.html" class="hover:text-[#00e5ff] transition">About Tera</a></li>
+                    <li><a href="/testimonials.html" class="hover:text-[#00e5ff] transition">Testimonials</a></li>
+                    <li><a href="/contact.html" class="hover:text-[#00e5ff] transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Legal & Resources</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="/resources.html" class="hover:text-[#00e5ff] transition">Resources</a></li>
+                    <li><a href="/privacy.html" class="hover:text-[#00e5ff] transition">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-[#00e5ff] transition">Terms of Service</a></li>
+                </ul>
             </div>
         </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-subtle text-center text-gray-500 text-sm">
+            &copy; 2026 Teraigent. All rights reserved.
+        </div>
     </footer>
+
 </body>
 </html>
