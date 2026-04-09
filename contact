@@ -18,10 +18,10 @@
     <nav class="flex items-center justify-between px-8 py-6 border-b border-[#333]">
         <a href="/" class="text-2xl font-bold tracking-tighter text-[#00e5ff]">TERAIGENT</a>
         <div class="hidden md:flex space-x-8 text-sm font-medium">
-            <a href="/products.html" class="hover:text-[#00e5ff] transition">Products</a>
-            <a href="/results.html" class="hover:text-[#00e5ff] transition">Results</a>
-            <a href="/about.html" class="hover:text-[#00e5ff] transition">About</a>
-            <a href="/contact.html" class="text-[#00e5ff]">Get Started</a>
+            <a href="/products" class="hover:text-[#00e5ff] transition">Products</a>
+            <a href="/results" class="hover:text-[#00e5ff] transition">Results</a>
+            <a href="/about" class="hover:text-[#00e5ff] transition">About</a>
+            <a href="/contact" class="text-[#00e5ff]">Get Started</a>
         </div>
     </nav>
 

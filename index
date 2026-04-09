@@ -56,13 +56,13 @@
     <div class="text-2xl font-bold tracking-tight text-white"><span class="text-[#00e5ff]">Tera</span>igent</div>
     <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-300">
         <a href="/" class="hover:text-white transition">Home</a>
-        <a href="/products.html" class="hover:text-white transition">Products</a>
-        <a href="/results.html" class="hover:text-white transition">Results</a>
-        <a href="/resources.html" class="hover:text-white transition">Resources</a>
-        <a href="/testimonials.html" class="hover:text-white transition">Testimonials</a>
-        <a href="/about.html" class="hover:text-white transition">About</a>
+        <a href="/products" class="hover:text-white transition">Products</a>
+        <a href="/results" class="hover:text-white transition">Results</a>
+        <a href="/resources" class="hover:text-white transition">Resources</a>
+        <a href="/testimonials" class="hover:text-white transition">Testimonials</a>
+        <a href="/about" class="hover:text-white transition">About</a>
     </div>
-    <a href="/getting-started.html" class="px-6 py-2 btn-primary rounded-none text-sm font-semibold tracking-wide">Get started</a>
+    <a href="/getting-started" class="px-6 py-2 btn-primary rounded-none text-sm font-semibold tracking-wide">Get started</a>
 </nav>
 
     <!-- Hero Section -->
@@ -81,7 +81,7 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-6 items-center reveal-up">
-            <a id="engage" href="/contact.html" class="btn-primary px-8 py-4 rounded-none font-semibold text-lg flex items-center justify-center">
+            <a id="engage" href="/contact" class="btn-primary px-8 py-4 rounded-none font-semibold text-lg flex items-center justify-center">
                 Initiate tech stack audit
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
@@ -164,25 +164,25 @@
             <div>
                 <h4 class="text-white font-semibold mb-4">Platform</h4>
                 <ul class="space-y-2 text-gray-400">
-                    <li><a href="/products.html" class="hover:text-[#00e5ff] transition">Products</a></li>
-                    <li><a href="/results.html" class="hover:text-[#00e5ff] transition">Results</a></li>
-                    <li><a href="/getting-started.html" class="hover:text-[#00e5ff] transition">Get started</a></li>
+                    <li><a href="/products" class="hover:text-[#00e5ff] transition">Products</a></li>
+                    <li><a href="/results" class="hover:text-[#00e5ff] transition">Results</a></li>
+                    <li><a href="/getting-started" class="hover:text-[#00e5ff] transition">Get started</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-semibold mb-4">Company</h4>
                 <ul class="space-y-2 text-gray-400">
-                    <li><a href="/about.html" class="hover:text-[#00e5ff] transition">About Tera</a></li>
-                    <li><a href="/testimonials.html" class="hover:text-[#00e5ff] transition">Testimonials</a></li>
-                    <li><a href="/contact.html" class="hover:text-[#00e5ff] transition">Contact</a></li>
+                    <li><a href="/about" class="hover:text-[#00e5ff] transition">About Tera</a></li>
+                    <li><a href="/testimonials" class="hover:text-[#00e5ff] transition">Testimonials</a></li>
+                    <li><a href="/contact" class="hover:text-[#00e5ff] transition">Contact</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-semibold mb-4">Legal & Resources</h4>
                 <ul class="space-y-2 text-gray-400">
-                    <li><a href="/resources.html" class="hover:text-[#00e5ff] transition">Resources</a></li>
-                    <li><a href="/privacy.html" class="hover:text-[#00e5ff] transition">Privacy Policy</a></li>
-                    <li><a href="/terms.html" class="hover:text-[#00e5ff] transition">Terms of Service</a></li>
+                    <li><a href="/resources" class="hover:text-[#00e5ff] transition">Resources</a></li>
+                    <li><a href="/privacy" class="hover:text-[#00e5ff] transition">Privacy Policy</a></li>
+                    <li><a href="/terms" class="hover:text-[#00e5ff] transition">Terms of Service</a></li>
                 </ul>
             </div>
         </div>
