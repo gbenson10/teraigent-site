@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Initiate Tech Stack Audit | Teraigent</title>
+    <title>Get Started | Teraigent</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0a0a0a; color: #e5e5e5; }
@@ -11,6 +11,7 @@
         .input-field:focus { outline: none; border-color: #00e5ff; }
         .btn-primary { background-color: #00e5ff; color: #000; font-weight: 700; padding: 16px 32px; border: none; cursor: pointer; transition: all 0.2s; }
         .btn-primary:hover { background-color: #fff; }
+        .checkbox-group input:checked + label { background-color: #00e5ff; color: #000; border-color: #00e5ff; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -20,15 +21,15 @@
             <a href="/products.html" class="hover:text-[#00e5ff] transition">Products</a>
             <a href="/results.html" class="hover:text-[#00e5ff] transition">Results</a>
             <a href="/about.html" class="hover:text-[#00e5ff] transition">About</a>
-            <a href="/contact.html" class="text-[#00e5ff]">Contact</a>
+            <a href="/contact.html" class="text-[#00e5ff]">Get Started</a>
         </div>
     </nav>
 
     <main class="flex-1 flex items-center justify-center px-4 py-16">
         <div class="max-w-2xl w-full">
             <div class="text-center mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Ready to eliminate manual workflows?</h1>
-                <p class="text-xl text-gray-400">Tell us about your bottlenecks. We'll build the autonomous infrastructure that solves them.</p>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Ready to Tenex your business?</h1>
+                <p class="text-xl text-gray-400">From AI engineering squads to end-to-end autonomous transformation, we'll help you win the next decade.</p>
             </div>
 
             <form id="auditForm" class="space-y-6">
@@ -78,8 +79,22 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium mb-2">What are your primary bottlenecks? *</label>
-                    <textarea name="bottlenecks" rows="3" required placeholder="e.g., Manual data entry between Salesforce and HubSpot..." class="input-field rounded-none"></textarea>
+                    <label class="block text-sm font-medium mb-3">Which services are you interested in?</label>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <input type="checkbox" name="services" value="ai-transformation" id="ai-transformation" class="hidden">
+                        <label for="ai-transformation" class="block text-center py-4 border border-[#333] cursor-pointer hover:border-[#00e5ff] transition">AI Transformation</label>
+                        
+                        <input type="checkbox" name="services" value="ai-engineering" id="ai-engineering" class="hidden">
+                        <label for="ai-engineering" class="block text-center py-4 border border-[#333] cursor-pointer hover:border-[#00e5ff] transition">AI Engineering</label>
+                        
+                        <input type="checkbox" name="services" value="autonomous-workflows" id="autonomous-workflows" class="hidden">
+                        <label for="autonomous-workflows" class="block text-center py-4 border border-[#333] cursor-pointer hover:border-[#00e5ff] transition">Autonomous Workflows</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Describe your specific needs *</label>
+                    <textarea name="needs" rows="4" required placeholder="What workflows are you looking to automate? What are your biggest bottlenecks?" class="input-field rounded-none"></textarea>
                 </div>
 
                 <div>
@@ -87,13 +102,13 @@
                     <input type="text" name="referral" class="input-field rounded-none" placeholder="X, LinkedIn, Google, etc.">
                 </div>
 
-                <button type="submit" class="btn-primary w-full rounded-none text-lg tracking-wide uppercase">Submit Audit Request</button>
+                <button type="submit" class="btn-primary w-full rounded-none text-lg tracking-wide uppercase">Thank You</button>
             </form>
 
             <div id="successMessage" class="hidden text-center py-12">
                 <div class="text-5xl mb-4">⚡</div>
-                <h2 class="text-2xl font-bold mb-2">Request Received.</h2>
-                <p class="text-gray-400">Our team will reach out within 1 business day to map your automation ROI.</p>
+                <h2 class="text-2xl font-bold mb-2">Thank You.</h2>
+                <p class="text-gray-400">Your request has been received. Our team will reach out within 1–2 business days to discuss how Teraigent can accelerate your AI goals.</p>
             </div>
         </div>
     </main>
@@ -108,8 +123,14 @@
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData);
             
+            // Collect checked services
+            const services = [];
+            if (document.getElementById('ai-transformation').checked) services.push('AI Transformation');
+            if (document.getElementById('ai-engineering').checked) services.push('AI Engineering');
+            if (document.getElementById('autonomous-workflows').checked) services.push('Autonomous Workflows');
+            
             // Build email body
-            const subject = encodeURIComponent('New Tech Stack Audit Request: ' + (data.company || 'Company'));
+            const subject = encodeURIComponent('New Get Started Request: ' + (data.company || 'Company'));
             const body = encodeURIComponent(
                 'Company: ' + (data.company || 'N/A') + '\n' +
                 'Name: ' + (data.firstName || '') + ' ' + (data.lastName || '') + '\n' +
@@ -117,7 +138,8 @@
                 'Phone: ' + (data.phone || 'N/A') + '\n' +
                 'Job Title: ' + (data.jobTitle || 'N/A') + '\n' +
                 'Revenue: ' + (data.revenue || 'N/A') + '\n' +
-                'Bottlenecks: ' + (data.bottlenecks || 'N/A') + '\n' +
+                'Services: ' + (services.length ? services.join(', ') : 'Not specified') + '\n' +
+                'Needs: ' + (data.needs || 'N/A') + '\n' +
                 'Referral: ' + (data.referral || 'Direct')
             );
             
@@ -125,6 +147,22 @@
             
             document.getElementById('auditForm').classList.add('hidden');
             document.getElementById('successMessage').classList.remove('hidden');
+        });
+        
+        // Toggle checkbox labels
+        document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if (this.checked) {
+                    label.style.backgroundColor = '#00e5ff';
+                    label.style.color = '#000';
+                    label.style.borderColor = '#00e5ff';
+                } else {
+                    label.style.backgroundColor = '';
+                    label.style.color = '';
+                    label.style.borderColor = '';
+                }
+            });
         });
     </script>
 </body>
